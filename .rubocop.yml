@@ -1,0 +1,28 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+
+Naming/MethodParameterName:
+  MinNameLength: 2
+
+RSpec/MultipleExpectations:
+  Max: 4
+
+RSpec/NestedGroups:
+  Max: 4
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
