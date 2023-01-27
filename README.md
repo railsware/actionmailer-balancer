@@ -6,7 +6,7 @@ Applications:
 
 - gradually migrate to a new mail provider (first 1% of mail, then 5%, and so on)
 - ...or to a new configuration (SMTP to Email API)
-- spread load between multiple providers to stay under limit
+- spread load between multiple providers
 
 Works with any valid ActionMailer delivery methods, either built-in or added from a library like [mailtrap](https://github.com/railsware/mailtrap-ruby#actionmailer).
 
