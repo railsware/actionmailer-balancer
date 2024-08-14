@@ -9,3 +9,9 @@
 
 # rspec failure tracking
 .rspec_status
+
+.ruby-gemset
+.ruby-version
+
+.vscode
+.idea
