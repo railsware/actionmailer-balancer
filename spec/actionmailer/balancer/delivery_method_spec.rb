@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe ActionMailer::Balancer::DeliveryMethod do # rubocop:disable RSpec/FilePath
+RSpec.describe ActionMailer::Balancer::DeliveryMethod do # rubocop:disable RSpec/SpecFilePathFormat
   describe '#deliver!' do
     subject(:deliver!) { described_class.new(settings).deliver!(message) }
 
