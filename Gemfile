@@ -4,11 +4,9 @@ source 'https://rubygems.org'
 
 gemspec
 
-group :development do
-  gem 'mail'
-  gem 'rake', '~> 13.0'
-  gem 'rspec', '~> 3.0'
-  gem 'rubocop', '~> 1.21'
-  gem 'rubocop-rake', require: false
-  gem 'rubocop-rspec', require: false
-end
+gem 'mail'
+gem 'rake', '~> 13.0'
+gem 'rspec', '~> 3.0'
+gem 'rubocop', '~> 1.21'
+gem 'rubocop-rake'
+gem 'rubocop-rspec'
