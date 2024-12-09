@@ -13,7 +13,7 @@ module ActionMailer
         delivery_method = choose_delivery_method
         message.delivery_method(
           ::ActionMailer::Base.delivery_methods[delivery_method[:method]],
-          delivery_method[:settings]
+          delivery_method[:settings] || {}
         )
         message.deliver!
       end
