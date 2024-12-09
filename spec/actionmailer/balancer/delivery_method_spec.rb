@@ -19,7 +19,11 @@ RSpec.describe ActionMailer::Balancer::DeliveryMethod do # rubocop:disable RSpec
             settings: {
               method_num: 2
             },
-            weight: 10
+            weight: 8
+          },
+          {
+            method: :sendmail,
+            weight: 2
           }
         ]
       }
@@ -30,6 +34,7 @@ RSpec.describe ActionMailer::Balancer::DeliveryMethod do # rubocop:disable RSpec
     before do
       allow(message).to receive(:delivery_method).with(Mail::SMTP, { method_num: 1 })
       allow(message).to receive(:delivery_method).with(Mail::Sendmail, { method_num: 2 })
+      allow(message).to receive(:delivery_method).with(Mail::Sendmail, {})
       allow(message).to receive(:deliver!)
       allow_any_instance_of(described_class).to receive(:rand).with(1..100).and_return(weight) # rubocop:disable RSpec/AnyInstance
     end
@@ -56,6 +61,7 @@ RSpec.describe ActionMailer::Balancer::DeliveryMethod do # rubocop:disable RSpec
 
         expect(message).to have_received(:delivery_method).with(Mail::SMTP, { method_num: 1 }).once
         expect(message).not_to have_received(:delivery_method).with(Mail::Sendmail, { method_num: 2 })
+        expect(message).not_to have_received(:delivery_method).with(Mail::Sendmail, {})
       end
     end
 
@@ -66,6 +72,19 @@ RSpec.describe ActionMailer::Balancer::DeliveryMethod do # rubocop:disable RSpec
         deliver!
 
         expect(message).to have_received(:delivery_method).with(Mail::Sendmail, { method_num: 2 }).once
+        expect(message).not_to have_received(:delivery_method).with(Mail::SMTP, { method_num: 1 })
+        expect(message).not_to have_received(:delivery_method).with(Mail::Sendmail, {})
+      end
+    end
+
+    context 'when third method is chosen' do
+      let(:weight) { 99 }
+
+      it 'sets correct delivery method' do
+        deliver!
+
+        expect(message).to have_received(:delivery_method).with(Mail::Sendmail, {}).once
+        expect(message).not_to have_received(:delivery_method).with(Mail::Sendmail, { method_num: 2 })
         expect(message).not_to have_received(:delivery_method).with(Mail::SMTP, { method_num: 1 })
       end
     end
