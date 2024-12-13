@@ -1,3 +1,8 @@
+## [1.1.2] - 2024-12-13
+- Allow Rails 8 
+
+  *Alex Ghiculescu*
+
 ## [1.1.1] - 2024-12-09
 - Fix crash when no settings are provided for a delivery method
   
@@ -16,8 +21,8 @@
 
 ## [1.1.0] - 2024-08-19
 
-- Dropped Ruby 2.7 support
-- Updated dependencies
+- Drop Ruby 2.7 support
+- Update dependencies
 
 ## [1.0.0] - 2022-10-07
 
