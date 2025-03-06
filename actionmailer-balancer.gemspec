@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
     'Distributes emails across multiple delivery methods in the given proportion.'
   spec.homepage = 'https://github.com/railsware/actionmailer-balancer'
   spec.license = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.1.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/railsware/actionmailer-balancer'

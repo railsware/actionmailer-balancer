@@ -1,9 +1,16 @@
+## [1.2.0] - 2025-03-06
+
+- Drop Ruby 3.0 support
+- Update dependencies
+
 ## [1.1.2] - 2024-12-13
+
 - Allow Rails 8 
 
   *Alex Ghiculescu*
 
 ## [1.1.1] - 2024-12-09
+
 - Fix crash when no settings are provided for a delivery method
   
   ```ruby
